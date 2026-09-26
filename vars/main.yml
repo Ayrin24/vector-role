@@ -1,4 +1,4 @@
-#SPDX-License-Identifier: MIT-0
+# SPDX-License-Identifier: MIT-0
 ---
 vector_binary_path: "{{ vector_install_dir }}/bin/vector"
 vector_config_path: "{{ vector_config_dir }}/vector.yaml"
