@@ -23,7 +23,7 @@
     url: "https://packages.timber.io/vector/{{ vector_version }}/vector-{{ vector_version }}-{{ vector_arch }}.tar.gz"
     dest: "{{ vector_archive_path }}"
     mode: "0644"
-  register: download_result
+  register: vector_download_result
 
 - name: Create installation directory
   ansible.builtin.file:
@@ -42,7 +42,7 @@
       - "--strip-components=2"
     owner: "{{ vector_user }}"
     group: "{{ vector_group }}"
-  when: download_result.changed  # noqa no-handler
+  when: vector_download_result.changed  # noqa no-handler
 
 - name: Create symlink for vector binary
   ansible.builtin.file:
