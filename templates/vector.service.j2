@@ -1,0 +1,16 @@
+[Unit]
+Description=Vector
+Documentation=https://vector.dev
+After=network-online.target
+Requires=network-online.target
+
+[Service]
+User={{ vector_user }}
+Group={{ vector_group }}
+ExecStart=/usr/local/bin/vector --config {{ vector_config_path }}
+Restart=always
+RestartSec=5
+Environment=VECTOR_LOG=info
+
+[Install]
+WantedBy=multi-user.target
